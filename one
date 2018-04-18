@@ -183,7 +183,7 @@ for i in range(len(z)):
 print("Output #131: (access elements in y with z's index values)")
 for j in range(len(z)):
     if y[j].startswith('J'):
-        print("{!s}".format(y[j])) #利用迴圈在z字典中的元素長度，設定判斷若該元素開頭則印出
+        print("{!s}".format(y[j])) #利用迴圈在z字典中的元素長度，設定判斷若該元素開頭為'J'則印出該元素
 
 print("Output #132:")
 for key, value in another_dict.items():
