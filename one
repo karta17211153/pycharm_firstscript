@@ -106,3 +106,87 @@ my_list = [1, 2, 3] #list
 my_tuple = ('x', 'y', 'z') #元組
 print("Output #100: {}".format(tuple(my_list))) #list轉元組
 print("Output #101: {}".format(list(my_tuple))) #元組轉list
+
+# 320
+# DICTIONARIES
+# Use curly braces to create a dictionary
+# Use a colon between keys and values in each pair
+# len() counts the number of key-value pairs in a dictionary
+empty_dict = { } #空的字典
+a_dict = {'one':1, 'two':2, 'three':3}
+print("Output #102: {}".format(a_dict)) #印出a_dict字典
+print("Output #103: a_dict has {!s} elements".format(len(a_dict))) #計算a_dict中有幾個元素(長度)並印出來
+another_dict = {'x':'printer', 'y':5, 'z':['star', 'circle', 9]}
+print("Output #104: {}".format(another_dict)) #印出another_dict字典
+print("Output #105: another_dict also has {!s} elements".format(len(another_dict))) #計算another_dict中有幾個元素(長度)並印出來
+
+# 333
+# Use keys to access specific values in a dictionary
+print("Output #106: {}".format(a_dict['two'])) #在a_dict裡尋找'two'的value值
+print("Output #107: {}".format(another_dict['z'])) #在another_dict裡尋找'z'的value值
+
+# 337
+# Use copy() to make a copy of a dictionary
+a_new_dict = a_dict.copy()
+print("Output #108: {}".format(a_new_dict)) #印出複製a_dict的字典
+
+# 341
+# Use keys(), values(), and items() to access
+# a dictionary's keys, values, and key-value pairs, respectively
+print("Output #109: {}".format(a_dict.keys())) #印出a_dict字典中元素的key
+a_dict_keys = a_dict.keys()
+print("Output #110: {}".format(a_dict_keys)) #印出a_dict字典中元素的key
+print("Output #111: {}".format(a_dict.values())) #印出a_dict字典中元素的value
+print("Output #112: {}".format(a_dict.items())) #印出a_dict字典中的元素
+
+# 349
+# Use in, not in, and get to test
+# whether a key is in a dictionary
+if 'y' in another_dict:
+	print("Output #114: y is a key in another_dict: {}.".format(another_dict.keys())) #印出'y'有在another_dict字典中，並印出another_dict佐證
+if 'c' not in another_dict:
+	print("Output #115: c is not a key in another_dict: {}.".format(another_dict.keys())) #印出'c'沒有在another_dict字典中，並印出another_dict佐證
+a_dict = {'one':1, 'two':2, 'three':3}
+another_dict = {'x':'printer', 'y':5, 'z':['star', 'circle', 9]}
+print("Output #116: {!s}".format(a_dict.get('three'))) #印出用'three'來尋找其value值
+print("Output #117: {!s}".format(a_dict.get('four'))) #印出用'four'來尋找其value值(輸出為None因為找不到相符的key)
+print("Output #118: {!s}".format(a_dict.get('four', 'Not in dict'))) #找不到相符的key，故輸出逗號後的字串
+
+# 363
+# Use sorted() to sort a dictionary
+# To sort a dictionary without changing the original dictionary,
+# make a copy first
+print("Output #119: " + str(a_dict)) #將a_dict轉成str型態跟前面的字串串一起並印出
+dict_copy = a_dict.copy()
+ordered_dict1 = sorted(dict_copy.items(), key=lambda item: item[0]) #將dict_copy排序，利用各元素的0index(key)作為依據並印出
+print("Output #120 (order by keys): {}".format(ordered_dict1))
+ordered_dict2 = sorted(dict_copy.items(), key=lambda item: item[1]) #將dict_copy排序，利用各元素的1index(value)作為依據並印出
+print("Output #121 (order by values): {}".format(ordered_dict2))
+ordered_dict3 = sorted(dict_copy.items(), key=lambda x: x[1], reverse=True) #將dict_copy排序，利用各元素的value作為依據(翻轉設定為TRUE是降冪)並輸出
+print("Output #122 (order by values, descending): {}".format(ordered_dict3))
+ordered_dict4 = sorted(dict_copy.items(), key=lambda x: x[1], reverse=False) #將dict_copy排序，利用各元素的value作為依據(翻轉設定為FALSE是升冪)並輸出
+print("Output #123 (order by values, ascending): {}".format(ordered_dict4))
+
+#393
+# for loop
+another_dict = {'x':'printer', 'y':5, 'z':['star', 'circle', 9]}
+y = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+z = ['Annie', 'Betty', 'Claire', 'Daphne', 'Ellie', 'Franchesca', 'Greta', 'Holly', 'Isabel', 'Jenny']
+print("Output #129:")
+for month in y:
+    print("{!s}".format(month)) #利用迴圈在y字典中的元素，依序印出
+
+print("Output #130: (index value: name in list)")
+for i in range(len(z)):
+    print("{0!s}: {1:s}".format(i, z[i])) #利用迴圈在z字典中的元素長度，依序印出(index,對照的元素)
+
+print("Output #131: (access elements in y with z's index values)")
+for j in range(len(z)):
+    if y[j].startswith('J'):
+        print("{!s}".format(y[j])) #利用迴圈在z字典中的元素長度，設定判斷若該元素開頭則印出
+
+print("Output #132:")
+for key, value in another_dict.items():
+    print("{0:s}, {1}".format(key, value)) #利用迴圈key及value在another_dict字典中的元素，依序印出(key,value)
+
+# 416
